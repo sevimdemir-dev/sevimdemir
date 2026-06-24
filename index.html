@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yönlendiriliyorsunuz...</title>
     
+    <!-- REKLAM BOTLARI VE ESKİ TARAYICILAR İÇİN DOĞRUDAN DEEP LINK YÖNLENDİRMESİ -->
+    <meta http-equiv="refresh" content="0;url=https://linktw.in/mFqite">
+    
     <style>
         body {
             background-color: #0d0d0d;
@@ -15,32 +18,30 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+        }
+        .loading-container {
+            text-align: center;
         }
         .loading-text {
             font-size: 18px;
             font-weight: bold;
             color: #cccccc;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
 
-    <div class="loading-text">Instagram Uygulamasına Yönlendiriliyorsunuz...</div>
+    <div class="loading-container">
+        <div class="loading-text">Instagram Uygulamasına Güvenli Şekilde Yönlendiriliyorsunuz...</div>
+    </div>
 
+    <!-- JAVASCRIPT TABANLI EN HIZLI DEEP LINK TETİKLEMESİ -->
     <script>
         window.onload = function() {
-            // UYGULAMAYI DOĞRUDAN TETİKLEYEN DEEP LINK (DEEP LINK PROTOKOLÜ)
-            var appUrl = "instagram://direct_share?username=sevim.demir.tff";
-            // YEDEK TARAYICI LINKI
-            var webUrl = "https://ig.me/m/sevim.demir.tff";
-
-            // Önce doğrudan telefondaki Instagram uygulamasını açmayı dene
-            window.location.href = appUrl;
-
-            // Eğer 300 milisaniye içinde uygulama açılmazsa (çünkü bazı cihazlar engelleyebilir), yedek linki devreye sok
-            setTimeout(function() {
-                window.location.replace(webUrl);
-            }, 300);
+            // Kullanıcı sayfaya ayak bastığı milisaniyede Deep Link servisi çalışır
+            window.location.replace("https://linktw.in/mFqite");
         };
     </script>
 
