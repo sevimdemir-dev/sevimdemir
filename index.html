@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yönlendiriliyorsunuz...</title>
+    <title>Sohbeti Başlat</title>
     
-    <!-- REKLAM BOTLARI İÇİN İLK KATMAN YÖNLENDİRMESİ -->
-    <meta http-equiv="refresh" content="0;url=https://urlgeni.us/instagram/gGHXnt">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
-            background-color: #0d0d0d;
+            background-color: #0b0c10;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -20,23 +19,83 @@
             margin: 0;
             overflow: hidden;
         }
-        .text {
-            font-size: 16px;
+
+        .box {
+            text-align: center;
+            padding: 40px 25px;
+            background: #1f2833;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            max-width: 360px;
+            width: 85%;
+        }
+
+        .title {
+            font-size: 24px;
             font-weight: bold;
-            color: #cccccc;
+            margin-bottom: 12px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .desc {
+            font-size: 15px;
+            color: #c5c6c7;
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+
+        /* YANAN SÖNEN, PARLAYAN VE SÜREKLİ HAREKET EDEN BUTON */
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 24px;
+            /* Kesintisiz Instagram Renk Geçişi */
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s;
+            /* Sürekli yanıp sönme ve parlama animasyonu */
+            animation: pulse-glow 1.2s infinite ease-in-out;
+        }
+
+        /* Kalp atışı gibi büyüyüp küçülen ve parlayan animasyon kodu */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(220, 39, 67, 0.6), 0 0 30px rgba(230, 104, 60, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(220, 39, 67, 0.9), 0 0 50px rgba(230, 104, 60, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(220, 39, 67, 0.6), 0 0 30px rgba(230, 104, 60, 0.4);
+            }
+        }
+
+        .action-btn i {
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
 
-    <div class="text">Doğrudan mesaj ekranına bağlanılıyor, lütfen bekleyin...</div>
-
-    <!-- KULLANICILAR İÇİN ANINDA DM AÇMA TETİKLEYİCİSİ -->
-    <script>
-        window.onload = function() {
-            window.location.replace("https://urlgeni.us/instagram/gGHXnt");
-        };
-    </script>
+    <div class="box">
+        <div class="title">Sevim Demir</div>
+        <div class="desc">Mesaj gönderme ekranına bağlanmak için aşağıdaki parlayan butona dokunun.</div>
+        
+        <a href="https://ig.me/m/sevim.demir.tff" class="action-btn">
+            <i class="fab fa-instagram"></i> SOHBETİ BAŞLAT (DM)
+        </a>
+    </div>
 
 </body>
 </html>
