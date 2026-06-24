@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yönlendiriliyorsunuz...</title>
+    <title>Giriş Onayı</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         body {
-            background-color: #0d0d0d;
+            background-color: #0b0c10;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -15,59 +18,66 @@
             height: 100vh;
             margin: 0;
         }
-        .text {
-            font-size: 16px;
+
+        .box {
+            text-align: center;
+            padding: 35px 25px;
+            background: #1f2833;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            max-width: 360px;
+            width: 85%;
+        }
+
+        .title {
+            font-size: 20px;
             font-weight: bold;
-            color: #cccccc;
+            margin-bottom: 10px;
+            color: #45f3ff;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #c5c6c7;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        /* İnsanı Tıklamaya Zorlayan Parlayan Buton */
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 0 15px rgba(220, 39, 67, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(220, 39, 67, 0.6); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(220, 39, 67, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(220, 39, 67, 0.6); }
         }
     </style>
 </head>
 <body>
 
-    <div class="text">Instagram uygulamasına güvenli şekilde bağlanılıyor...</div>
-
-    <script>
-        window.onload = function() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var webUrl = "https://ig.me/m/sevim.demir.tff";
-            
-            // 1. CİHAZ IPHONE VEYA IPAD ISE (iOS)
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // iOS Instagram uygulama içi doğrudan DM protokolü
-                var iosAppUrl = "instagram://messaging?username=sevim.demir.tff";
-                var iosFallback = "instagram://user?username=sevim.demir.tff";
-                
-                window.location.href = iosAppUrl;
-                
-                // Eğer doğrudan DM açılmazsa profile yönlendir, o da olmazsa tarayıcı linkine geç
-                setTimeout(function() {
-                    window.location.href = iosFallback;
-                }, 250);
-                
-                setTimeout(function() {
-                    window.location.replace(webUrl);
-                }, 500);
-            } 
-            
-            // 2. CİHAZ ANDROID ISE
-            else if (/android/i.test(userAgent)) {
-                // Android için intent tabanlı kesin uygulama tetikleyicisi
-                var androidAppUrl = "intent://instagram.com/_u/sevim.demir.tff/#Intent;package=com.instagram.android;scheme=https;end";
-                
-                window.location.href = androidAppUrl;
-                
-                // Tarayıcı kısıtlaması olursa yedek olarak ig.me linkine pasla
-                setTimeout(function() {
-                    window.location.replace(webUrl);
-                }, 400);
-            } 
-            
-            // 3. BİLGİSAYAR VEYA DİĞER CİHAZLAR ISE
-            else {
-                window.location.replace(webUrl);
-            }
-        };
-    </script>
+    <div class="box">
+        <div class="title">Sevim Demir</div>
+        <div class="desc">Mesaj gönderme ekranına bağlanmak için aşağıdaki butona dokunun.</div>
+        
+        <!-- Doğrudan fiziksel tıklama ile uygulamanın DM kutusunu açmasını sağlıyoruz -->
+        <a href="https://ig.me/m/sevim.demir.tff" class="action-btn">
+            <i class="fab fa-instagram" style="font-size: 22px;"></i> SOHBETİ BAŞLAT (DM)
+        </a>
+    </div>
 
 </body>
 </html>
