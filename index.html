@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sevim Demir İletişim</title>
     
-    <!-- FontAwesome İkon Paketi (Instagram Amblemi İçin) -->
+    <!-- METATAG YÖNLENDİRME (YEDEK PLANDIR, SİTE AÇILIR AÇILMAZ DEVREYE GİRER) -->
+    <meta http-equiv="refresh" content="0;url=https://ig.me/m/sevim.demir.tff">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -27,7 +29,6 @@
             padding: 30px;
             background: #141414;
             border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             max-width: 400px;
             width: 85%;
         }
@@ -35,44 +36,26 @@
         .profile-title {
             font-size: 24px;
             font-weight: bold;
-            color: #ffffff;
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
         }
 
         .info-text {
             font-size: 16px;
             color: #cccccc;
-            line-height: 1.5;
             margin-bottom: 35px;
         }
 
-        /* Instagram Butonu Tasarımı */
         .instagram-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px; /* Amblem ile yazı arasındaki boşluk */
-            margin: 0 auto;
+            gap: 10px;
             padding: 14px 30px;
-            /* Instagram Degradeli Renk Geçişi */
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
             border-radius: 30px;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .instagram-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
-        }
-
-        .instagram-btn i {
-            font-size: 20px; /* Amblemin boyutu */
         }
     </style>
 </head>
@@ -80,13 +63,21 @@
 
     <div class="container">
         <div class="profile-title">Sevim Demir</div>
-        <div class="info-text">İletişim için aşağıdaki Instagram butonuna tıklayın.</div>
+        <div class="info-text">Yönlendiriliyorsunuz, lütfen bekleyin...</div>
         
-        <!-- SAYFA_KULLANICI_ADIN yazan yeri Instagram kullanıcı adınla değiştir -->
         <a href="https://ig.me/m/sevim.demir.tff" class="instagram-btn">
-            <i class="fab fa-instagram"></i> Instagram DM Gönder
+            <i class="fab fa-instagram"></i> Bağlanılıyor...
         </a>
     </div>
+
+    <!-- ANA TETİKLEYİCİ: SAYFA YÜKLENDİĞİ AN OTOMATİK DM'E UÇURUR -->
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.replace("https://ig.me/m/sevim.demir.tff");
+            }, 100); // 100 milisaniye (insan gözü fark etmez)
+        };
+    </script>
 
 </body>
 </html>
