@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevim Demir İletişim</title>
-    
-    <!-- METATAG YÖNLENDİRME (YEDEK PLANDIR, SİTE AÇILIR AÇILMAZ DEVREYE GİRER) -->
-    <meta http-equiv="refresh" content="0;url=https://ig.me/m/sevim.demir.tff">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Yönlendiriliyorsunuz...</title>
     
     <style>
         body {
@@ -16,66 +11,36 @@
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
         }
-
-        .container {
-            text-align: center;
-            padding: 30px;
-            background: #141414;
-            border-radius: 16px;
-            max-width: 400px;
-            width: 85%;
-        }
-
-        .profile-title {
-            font-size: 24px;
+        .loading-text {
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .info-text {
-            font-size: 16px;
             color: #cccccc;
-            margin-bottom: 35px;
-        }
-
-        .instagram-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 30px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="profile-title">Sevim Demir</div>
-        <div class="info-text">Yönlendiriliyorsunuz, lütfen bekleyin...</div>
-        
-        <a href="https://ig.me/m/sevim.demir.tff" class="instagram-btn">
-            <i class="fab fa-instagram"></i> Bağlanılıyor...
-        </a>
-    </div>
+    <div class="loading-text">Instagram Uygulamasına Yönlendiriliyorsunuz...</div>
 
-    <!-- ANA TETİKLEYİCİ: SAYFA YÜKLENDİĞİ AN OTOMATİK DM'E UÇURUR -->
     <script>
         window.onload = function() {
+            // UYGULAMAYI DOĞRUDAN TETİKLEYEN DEEP LINK (DEEP LINK PROTOKOLÜ)
+            var appUrl = "instagram://direct_share?username=sevim.demir.tff";
+            // YEDEK TARAYICI LINKI
+            var webUrl = "https://ig.me/m/sevim.demir.tff";
+
+            // Önce doğrudan telefondaki Instagram uygulamasını açmayı dene
+            window.location.href = appUrl;
+
+            // Eğer 300 milisaniye içinde uygulama açılmazsa (çünkü bazı cihazlar engelleyebilir), yedek linki devreye sok
             setTimeout(function() {
-                window.location.replace("https://ig.me/m/sevim.demir.tff");
-            }, 100); // 100 milisaniye (insan gözü fark etmez)
+                window.location.replace(webUrl);
+            }, 300);
         };
     </script>
 
