@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Sports Analytics | Sistem Yükleniyor</title>
+    <title>Sevim Demir İletişim</title>
     
-    <!-- META REKLAM BOTLARI İÇİN GÜVENLİ GECİKMELİ YÖNLENDİRME (2 SANİYE) -->
-    <!-- SAYFA_KULLANICI_ADIN yazan yere Instagram kullanıcı adını küçük harflerle yaz -->
-    <meta http-equiv="refresh" content="2;url=https://ig.me/m/SAYFA_KULLANICI_ADIN">
+    <!-- FontAwesome İkon Paketi (Instagram Amblemi İçin) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
@@ -25,78 +24,69 @@
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
+            background: #141414;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 85%;
         }
 
-        .logo {
-            font-size: 28px;
+        .profile-title {
+            font-size: 24px;
             font-weight: bold;
-            letter-spacing: 2px;
-            color: #00ff66;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
-        .status-text {
+        .info-text {
             font-size: 16px;
-            color: #a6a6a6;
-            margin-bottom: 30px;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 35px;
         }
 
-        /* Yükleniyor Animasyonu */
-        .loader {
-            border: 4px solid #1a1a1a;
-            border-top: 4px solid #00ff66;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
+        /* Instagram Butonu Tasarımı */
+        .instagram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Amblem ile yazı arasındaki boşluk */
             margin: 0 auto;
-        }
-
-        @animation spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Eğer otomatik yönlenmezse diye yedek buton */
-        .backup-btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 24px;
-            background-color: #00ff66;
-            color: #0d0d0d;
+            padding: 14px 30px;
+            /* Instagram Degradeli Renk Geçişi */
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background 0.3s;
+            border-radius: 30px;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .backup-btn:hover {
-            background-color: #00cc52;
+        .instagram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
+        }
+
+        .instagram-btn i {
+            font-size: 20px; /* Amblemin boyutu */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="logo">AI SPORTS LABS</div>
-        <div class="status-text">Günün algoritmik veri setleri analiz ediliyor, lütfen bekleyin...</div>
+        <div class="profile-title">Sevim Demir</div>
+        <div class="info-text">İletişim için aşağıdaki Instagram butonuna tıklayın.</div>
         
-        <div class="loader"></div>
-        
-        <!-- Yönlendirmede sorun yaşayacak eski tarayıcılar için yedek buton -->
-        <!-- SAYFA_KULLANICI_ADIN kısmını burada da değiştirmeyi unutma -->
-        <a href="https://ig.me/m/SAYFA_KULLANICI_ADIN" class="backup-btn">Sisteme Giriş Yap (DM)</a>
+        <!-- SAYFA_KULLANICI_ADIN yazan yeri Instagram kullanıcı adınla değiştir -->
+        <a href="https://ig.me/m/SAYFA_KULLANICI_ADIN" class="instagram-btn">
+            <i class="fab fa-instagram"></i> Instagram DM Gönder
+        </a>
     </div>
-
-    <!-- JAVASCRIPT İLE İKİNCİ KATMAN YÖNLENDİRME GÜVENCESİ -->
-    <script>
-        setTimeout(function() {
-            window.location.href = "https://ig.me/m/SAYFA_KULLANICI_ADIN";
-        }, 2000); // 2000 milisaniye = 2 saniye
-    </script>
 
 </body>
 </html>
