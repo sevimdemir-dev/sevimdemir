@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yönlendiriliyorsunuz...</title>
-    
-    <!-- REKLAM BOTLARI VE ESKİ TARAYICILAR İÇİN DOĞRUDAN DEEP LINK YÖNLENDİRMESİ -->
-    <meta http-equiv="refresh" content="0;url=https://linktw.in/mFqite">
-    
     <style>
         body {
             background-color: #0d0d0d;
@@ -18,30 +14,58 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
         }
-        .loading-container {
-            text-align: center;
-        }
-        .loading-text {
-            font-size: 18px;
+        .text {
+            font-size: 16px;
             font-weight: bold;
             color: #cccccc;
-            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
 
-    <div class="loading-container">
-        <div class="loading-text">Instagram Uygulamasına Güvenli Şekilde Yönlendiriliyorsunuz...</div>
-    </div>
+    <div class="text">Instagram uygulamasına güvenli şekilde bağlanılıyor...</div>
 
-    <!-- JAVASCRIPT TABANLI EN HIZLI DEEP LINK TETİKLEMESİ -->
     <script>
         window.onload = function() {
-            // Kullanıcı sayfaya ayak bastığı milisaniyede Deep Link servisi çalışır
-            window.location.replace("https://linktw.in/mFqite");
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var webUrl = "https://ig.me/m/sevim.demir.tff";
+            
+            // 1. CİHAZ IPHONE VEYA IPAD ISE (iOS)
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS Instagram uygulama içi doğrudan DM protokolü
+                var iosAppUrl = "instagram://messaging?username=sevim.demir.tff";
+                var iosFallback = "instagram://user?username=sevim.demir.tff";
+                
+                window.location.href = iosAppUrl;
+                
+                // Eğer doğrudan DM açılmazsa profile yönlendir, o da olmazsa tarayıcı linkine geç
+                setTimeout(function() {
+                    window.location.href = iosFallback;
+                }, 250);
+                
+                setTimeout(function() {
+                    window.location.replace(webUrl);
+                }, 500);
+            } 
+            
+            // 2. CİHAZ ANDROID ISE
+            else if (/android/i.test(userAgent)) {
+                // Android için intent tabanlı kesin uygulama tetikleyicisi
+                var androidAppUrl = "intent://instagram.com/_u/sevim.demir.tff/#Intent;package=com.instagram.android;scheme=https;end";
+                
+                window.location.href = androidAppUrl;
+                
+                // Tarayıcı kısıtlaması olursa yedek olarak ig.me linkine pasla
+                setTimeout(function() {
+                    window.location.replace(webUrl);
+                }, 400);
+            } 
+            
+            // 3. BİLGİSAYAR VEYA DİĞER CİHAZLAR ISE
+            else {
+                window.location.replace(webUrl);
+            }
         };
     </script>
 
