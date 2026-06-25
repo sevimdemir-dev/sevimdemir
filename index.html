@@ -14,7 +14,10 @@
         h1 span { color: #f59e0b; }
         .subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 20px; }
         
-        .counter { background-color: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; padding: 10px; border-radius: 10px; margin-bottom: 25px; display: inline-block; font-weight: bold; }
+        .counter { background-color: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; padding: 10px; border-radius: 10px; margin-bottom: 15px; display: inline-block; font-weight: bold; }
+        
+        /* GERİ SAYIM SAYACI */
+        .countdown-box { background: linear-gradient(45deg, #dc2743, #cc2366); color: white; padding: 10px; border-radius: 10px; margin-bottom: 25px; font-weight: bold; font-size: 0.95rem; display: block; box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3); }
         
         .btn { display: block; padding: 15px; border-radius: 30px; text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .btn-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
@@ -38,17 +41,32 @@
         .review-text { font-style: italic; color: #e2e8f0; margin-bottom: 10px; }
         .user { font-weight: bold; font-size: 0.9rem; color: #22c55e; }
 
-        /* Belgeler ve Sertifikalar Alanı */
+        /* S.S.S Tasarımı */
+        .faq-item { margin-bottom: 15px; border-bottom: 1px solid #475569; padding-bottom: 10px; }
+        .faq-question { font-weight: bold; color: #f59e0b; margin-bottom: 5px; font-size: 1rem; }
+        .faq-answer { color: #e2e8f0; font-size: 0.9rem; }
+
+        /* Belgeler */
         .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
         .cert-item { background-color: #0f172a; border: 1px solid #475569; padding: 8px; border-radius: 8px; text-align: center; }
-        .cert-item img { width: 100%; height: auto; border-radius: 5px; display: block; filter: grayscale(20%); transition: 0.3s; }
-        .cert-item img:hover { filter: grayscale(0%); transform: scale(1.02); }
+        .cert-item img { width: 100%; height: auto; border-radius: 5px; display: block; filter: grayscale(20%); }
         .cert-title { font-size: 0.8rem; margin-top: 8px; color: #94a3b8; font-weight: bold; }
         
+        /* CANLI BİLDİRİM POPUP (SOL ALT) */
+        #notification-popup { position: fixed; bottom: 20px; left: -320px; width: 280px; background-color: #1e293b; border-left: 5px solid #22c55e; padding: 12px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-align: left; z-index: 9999; transition: left 0.5s ease-in-out; border-top: 1px solid rgba(255,255,255,0.05); }
+        .notif-title { font-size: 0.85rem; font-weight: bold; color: #22c55e; margin-bottom: 2px; }
+        .notif-text { font-size: 0.8rem; color: #f8fafc; }
+
         footer { margin-top: 40px; color: #64748b; font-size: 0.85rem; padding-top: 20px; border-top: 1px solid #1e293b; }
     </style>
 </head>
 <body>
+
+    <!-- CANLI BİLDİRİM KUTUSU -->
+    <div id="notification-popup">
+        <div class="notif-title">💰 İşlem Başarılı</div>
+        <div class="notif-text" id="notif-content">Ahmet K. az önce VIP Gruba katıldı.</div>
+    </div>
 
     <div class="container">
         
@@ -57,6 +75,11 @@
         <p class="subtitle">Yüksek başarı oranlı, istatistik tabanlı profesyonel spor ve maç analizleri. Kazanmaya bugün başlayın.</p>
         
         <div class="counter">🟢 Bugün Katılan Üye Sayısı: 458 Kişi</div>
+        
+        <!-- GERI SAYIM SAYAÇ ALANI -->
+        <div class="countdown-box">
+            ⏰ Günün VIP Kuponlarının Kapanmasına Son: <span id="timer">02:14:55</span>
+        </div>
         
         <!-- Butonlar -->
         <a href="https://instagram.com/KENDI_KULLANICI_ADIN" target="_blank" class="btn btn-insta">📸 Instagram'dan Mesaj At</a>
@@ -115,28 +138,47 @@
             <p class="user">Burak S. ✔️ Onaylı Üye</p>
         </div>
 
-        <!-- BELGELERİMİZ VE SERTİFİKALARIMIZ (YENİ EKLENEN ALAN) -->
+        <!-- SIKÇA SORULAN SORULAR ALANI (YENİ) -->
+        <div class="box">
+            <h2>❓ Sıkça Sorulan Sorular</h2>
+            <div style="margin-top: 15px;">
+                <div class="faq-item">
+                    <div class="faq-question">Kuponların yatma ihtimali var mı?</div>
+                    <div class="faq-answer">Paylaşılan VIP analizler %95'in üzerinde istatistiksel başarı güvencesine sahiptir. Risk her zaman minimum düzeyde tutulur.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Kazanç sağladıktan sonra ek ücret talep ediyor musunuz?</div>
+                    <div class="faq-answer">Hayır, kesinlikle komisyon, vergi veya dosya masrafı adı altında sonradan hiçbir ek ücret talep edilmez.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Kuponları hangi sitelerden oynayabilirim?</div>
+                    <div class="faq-answer">Verilen maçlar tamamen yasal bülten maçları olup tüm yerli ve resmi bahis platformlarında mevcuttur.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Gruba katılım sağladıktan sonra kuponlar ne zaman iletilir?</div>
+                    <div class="faq-answer">Ödemeniz ve katılımınız onaylandığı an günün güncel VIP analizleri doğrudan mesaj yoluyla size teslim edilir.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BELGELERİMİZ VE SERTİFİKALARIMIZ -->
         <div class="box">
             <h2>📜 Belgelerimiz ve Sertifikalarımız</h2>
             <p style="font-size:0.85rem; color:#94a3b8; text-align:center; margin-bottom:10px;">Uluslararası platformlarca onaylanmış başarı ve güven tescillerimiz.</p>
             
             <div class="cert-grid">
-                <!-- Sertifika 1 -->
                 <div class="cert-item">
                     <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=400&auto=format&fit=crop&q=60" alt="Sertifika 1">
                     <div class="cert-title">Global Güven Sertifikası</div>
                 </div>
-                <!-- Sertifika 2 -->
                 <div class="cert-item">
                     <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&auto=format&fit=crop&q=60" alt="Sertifika 2">
                     <div class="cert-title">Üstün Başarı Ödülü</div>
                 </div>
-                <!-- Sertifika 3 -->
                 <div class="cert-item">
                     <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&auto=format&fit=crop&q=60" alt="Sertifika 3">
                     <div class="cert-title">Veri Analiz Lisansı</div>
                 </div>
-                <!-- Sertifika 4 -->
                 <div class="cert-item">
                     <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&auto=format&fit=crop&q=60" alt="Sertifika 4">
                     <div class="cert-title">Resmi Tescil Belgesi</div>
@@ -152,6 +194,7 @@
     </div>
 
     <script>
+        // Hesaplama fonksiyonu
         function hesapla() {
             var s = document.getElementById('tutar');
             var d = document.getElementById('kazanc');
@@ -159,6 +202,8 @@
             var toplam = v * 196;
             d.innerText = toplam.toLocaleString('tr-TR') + " TL";
         }
+
+        // Form Gönderme fonksiyonu
         function gonder(e) {
             e.preventDefault();
             var n = document.getElementById('isim').value;
@@ -166,6 +211,54 @@
             var k = document.getElementById('kazanc').innerText;
             alert("Sayın " + n + ", " + t + " TL katılım talebiniz alınmıştır.\nTahmini Kazanç: " + k + "\n\nŞimdi lütfen işlemlerinizi tamamlamak için Telegram veya Instagram butonlarını kullanarak bizimle iletişime geçin.");
         }
+
+        // 2 Saatlik Geri Sayım Sayacı Scripti
+        var duration = 2 * 60 * 60 + 14 * 60 + 55; // 02:14:55 saniye cinsinden
+        var timerDisplay = document.getElementById('timer');
+        setInterval(function () {
+            var hours = parseInt(duration / 3600, 10);
+            var minutes = parseInt((duration % 3600) / 60, 10);
+            var seconds = parseInt(duration % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerDisplay.textContent = hours + ":" + minutes + ":" + seconds;
+
+            if (--duration < 0) {
+                duration = 2 * 60 * 60 + 14 * 60 + 55; // Süre bitince sıfırlanıp baştan başlasın
+            }
+        }, 1000);
+
+        // Canlı Bildirim Akışı (Popup) Scripti
+        var notifications = [
+            "Mehmet A. az önce VIP Gruba katıldı.",
+            "Gökhan K. 98.000 TL kazancını başarıyla çekti.",
+            "Caner T. az önce VIP Gruba katıldı.",
+            "Selin B. 196.000 TL kazancını başarıyla çekti.",
+            "Onur D. az önce VIP Gruba katıldı.",
+            "Ferhat Y. 294.000 TL kazancını başarıyla çekti."
+        ];
+        var notifPopup = document.getElementById('notification-popup');
+        var notifContent = document.getElementById('notif-content');
+        var notifIndex = 0;
+
+        function showNextNotification() {
+            notifContent.textContent = notifications[notifIndex];
+            notifPopup.style.left = "20px"; // Ekrana giriş yap
+            
+            setTimeout(function() {
+                notifPopup.style.left = "-320px"; // 3 saniye sonra ekrandan çık
+                notifIndex = (notifIndex + 1) % notifications.length;
+            }, 3000);
+        }
+
+        // İlk bildirimi 3. saniyede başlat, sonra her 7 saniyede bir tekrarla
+        setTimeout(function() {
+            showNextNotification();
+            setInterval(showNextNotification, 7000);
+        }, 3000);
     </script>
 
 </body>
