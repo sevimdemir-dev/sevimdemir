@@ -37,6 +37,13 @@
         .stars { color: #f59e0b; margin-bottom: 5px; }
         .review-text { font-style: italic; color: #e2e8f0; margin-bottom: 10px; }
         .user { font-weight: bold; font-size: 0.9rem; color: #22c55e; }
+
+        /* Belgeler ve Sertifikalar Alanı */
+        .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
+        .cert-item { background-color: #0f172a; border: 1px solid #475569; padding: 8px; border-radius: 8px; text-align: center; }
+        .cert-item img { width: 100%; height: auto; border-radius: 5px; display: block; filter: grayscale(20%); transition: 0.3s; }
+        .cert-item img:hover { filter: grayscale(0%); transform: scale(1.02); }
+        .cert-title { font-size: 0.8rem; margin-top: 8px; color: #94a3b8; font-weight: bold; }
         
         footer { margin-top: 40px; color: #64748b; font-size: 0.85rem; padding-top: 20px; border-top: 1px solid #1e293b; }
     </style>
@@ -106,6 +113,35 @@
             <div class="stars">⭐⭐⭐⭐⭐</div>
             <p class="review-text">"Öğrenciyim, borçlarım vardı. Sevim ablanın dün verdiği akşam kuponu sayesinde rahat bir nefes aldım. Kalitenin tek adresi."</p>
             <p class="user">Burak S. ✔️ Onaylı Üye</p>
+        </div>
+
+        <!-- BELGELERİMİZ VE SERTİFİKALARIMIZ (YENİ EKLENEN ALAN) -->
+        <div class="box">
+            <h2>📜 Belgelerimiz ve Sertifikalarımız</h2>
+            <p style="font-size:0.85rem; color:#94a3b8; text-align:center; margin-bottom:10px;">Uluslararası platformlarca onaylanmış başarı ve güven tescillerimiz.</p>
+            
+            <div class="cert-grid">
+                <!-- Sertifika 1 -->
+                <div class="cert-item">
+                    <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=400&auto=format&fit=crop&q=60" alt="Sertifika 1">
+                    <div class="cert-title">Global Güven Sertifikası</div>
+                </div>
+                <!-- Sertifika 2 -->
+                <div class="cert-item">
+                    <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&auto=format&fit=crop&q=60" alt="Sertifika 2">
+                    <div class="cert-title">Üstün Başarı Ödülü</div>
+                </div>
+                <!-- Sertifika 3 -->
+                <div class="cert-item">
+                    <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&auto=format&fit=crop&q=60" alt="Sertifika 3">
+                    <div class="cert-title">Veri Analiz Lisansı</div>
+                </div>
+                <!-- Sertifika 4 -->
+                <div class="cert-item">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&auto=format&fit=crop&q=60" alt="Sertifika 4">
+                    <div class="cert-title">Resmi Tescil Belgesi</div>
+                </div>
+            </div>
         </div>
         
         <footer>
