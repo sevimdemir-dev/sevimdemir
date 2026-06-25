@@ -3,99 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sohbeti Başlat</title>
-    
+    <title>Sevim Demir - Profesyonel Spor Analizleri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            background-color: #0b0c10;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-gold: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --instagram-color: #e1306c;
+            --telegram-color: #0088cc;
+        }
+
+        * {
             margin: 0;
-            overflow: hidden;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .box {
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Profil Alanı */
+        header {
             text-align: center;
-            padding: 40px 25px;
-            background: #1f2833;
+            padding: 60px 0 40px 0;
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.1) 0%, rgba(15, 23, 42, 0) 100%);
+        }
+
+        .profile-badge {
+            background: gold;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header h1 span {
+            color: var(--accent-gold);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Canlı Sayaç Paneli */
+        .live-counter {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        /* Butonlar */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-telegram {
+            background-color: var(--telegram-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        /* Bilgi Alanı (Kupon Değiştireceğin Yer) */
+        .info-section {
+            background-color: var(--card-bg);
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            max-width: 360px;
-            width: 85%;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 5px solid var(--accent-gold);
         }
 
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            color: #ffffff;
-            letter-spacing: 0.5px;
+        .info-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
         }
 
-        .desc {
-            font-size: 15px;
-            color: #c5c6c7;
-            margin-bottom: 35px;
-            line-height: 1.5;
+        /* Güvenilirlik Özellikleri */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
         }
 
-        /* YANAN SÖNEN, PARLAYAN VE SÜREKLİ HAREKET EDEN BUTON */
-        .action-btn {
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Müşteri Yorumları */
+        .testimonials {
+            margin-bottom: 60px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #e2e8f0;
+            margin-bottom: 15px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #475569;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 18px 24px;
-            /* Kesintisiz Instagram Renk Geçişi */
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-            text-decoration: none;
             font-weight: bold;
-            border-radius: 10px;
-            font-size: 18px;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s;
-            /* Sürekli yanıp sönme ve parlama animasyonu */
-            animation: pulse-glow 1.2s infinite ease-in-out;
+            color: var(--accent-gold);
         }
 
-        /* Kalp atışı gibi büyüyüp küçülen ve parlayan animasyon kodu */
-        @keyframes pulse-glow {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(220, 39, 67, 0.6), 0 0 30px rgba(230, 104, 60, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 25px rgba(220, 39, 67, 0.9), 0 0 50px rgba(230, 104, 60, 0.7);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 15px rgba(220, 39, 67, 0.6), 0 0 30px rgba(230, 104, 60, 0.4);
-            }
+        .user-details h4 {
+            font-size: 0.95rem;
         }
 
-        .action-btn i {
-            font-size: 24px;
+        .user-details span {
+            font-size: 0.8rem;
+            color: #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Mobil Düzenlemeler */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .btn { width: 100%; justify-content: center; }
+            .info-section { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <div class="title">Sevim Demir</div>
-        <div class="desc">Mesaj gönderme ekranına bağlanmak için aşağıdaki parlayan butona dokunun.</div>
-        
-        <a href="https://ig.me/m/sevim.demir.tff" class="action-btn">
-            <i class="fab fa-instagram"></i> SOHBETİ BAŞLAT (DM)
-        </a>
-    </div>
+    <header>
+        <div class="container">
+            <span class="profile-badge"><i class="fa-solid fa-shield-halved"></i> Onaylı Analist</span>
+            <h1>Sevim <span>Demir</span></h1>
+            <p>Yüksek başarı oranlı, istatistik tabanlı profesyonel spor ve maç analizleri. Kazanmaya bugün başlayın.</p>
+            
+            <div class="live-counter">
+                <div class="pulse-dot"></div>
+                <span>Bugün Katılan Üye Sayısı: <strong>458 Kişi</strong></span>
+            </div>
 
-</body>
-</html>
+            <div class="social-buttons">
+                <a href="https://instagram.com/KENDI_KULLANICI_ADIN" target="_blank" class="btn btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Instagram'dan Mesaj At
+                </a>
+                <a href="https://t.me/KENDI_KANAL_LINKIN" target="_blank" class="btn btn-telegram">
+                    <i class="fa-brands fa-telegram"></i> Telegram Kanalına Katıl
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="info-section">
+            <h2><i class="fa-solid fa-fire"></i> Günün VIP Analizleri Hakkında Bilgi</h2>
+            <p><strong>Değiştirebileceğin Alan:</strong> Buraya kupon satış stratejini yazabilirsin. Örneğin: "Bugün bültene özel özenle seçilmiş, güven oranı %95 olan 2 adet VIP kuponumuz hazırdır. Analizlerimiz tamamen Avrupa kaynaklı istatistiklere ve takım form durumlarına dayanmaktadır. Detaylı bilgi, oranlar ve katılım şartları için yukarıdaki butonları kullanarak doğrudan benimle iletişime geçebilirsiniz. Kontenjanlarımız her gün sınırlıdır!"</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Yüksek Başarı Oranı</h3>
+                <p>Gelişmiş veri analiz modelleri ve risk yönetimi sayesinde kuponlarımızda düzenli ve yüksek başarı oranı sağlıyoruz.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>7/24 Birebir Destek</h3>
+                <p>İletişime geçtiğiniz andan itibaren kupon seçimi, kasa yönetimi ve tüm sorularınız için kesintisiz destek veriyoruz.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-user-check"></i>
+                <h3>Şeffaf ve Güvenilir</h3>
+                <p>Kazandırdığımız tüm kuponları ve güncel analiz sonuçlarını sosyal medya hesaplarımızda şeffaf bir şekilde paylaşıyoruz.</p>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2><i class="fa-solid fa-comments"></i> Müşteri Yorumları</h2>
+            <div class="reviews-grid">
+                
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Sevim hanım sayesinde 3 gündür üst üste kasayı katladım. İlk başta tereddüt etmiştim ama gerçekten işinin hakkını veriyor. Teşekkürler!"</p>
+                    <div class="user-info">
+                        <div class="user-avatar">A</div>
+                        <div class="user-details">
+                            <h4>Ahmet Y.</h4>
+                            <span><i class="fa-solid fa-circle-check"></i> Onaylı Üye</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Telegram kanalındaki ücretsiz paylaşımları bile tutuyor, VIP kuponunu aldım harika bir oranla geldi. Kesinlikle tavsiye ederim."</p>
+                    <div class="user-info">
+                        <div class="user-avatar">M</div>
+                        <div class="user-details">
+                            <h4>Murat K.</h4>
+                            <span><i class="fa-solid fa-circle-check"></i> Onaylı Üye</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"Öğrenciyim, borçlarım vardı. Sevim ablanın dün verdiği akşam kuponu sayesinde rahat bir nefes aldım. Kalitenin tek adresi."</p>
+                    <div class="user-info">
+                        <div class="user-avatar">B</div>
+                        <div class="user-details">
+                            <h4>Burak S.</h4>
+                            <span><i class="fa-solid fa-circle-check"></i> Onaylı Üye</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
